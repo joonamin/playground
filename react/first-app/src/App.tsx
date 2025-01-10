@@ -1,17 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+
+function Header() {
+  return (
+    <header>
+      <img src="/src/assets/react.svg" alt="react-logo" />
+      <h1>React Essentials</h1>
+    </header>
+  )
+}
 
 function App() {
   return (
     <>
       <div className="main">
-        <header>
-          <img src="/src/assets/react.svg" alt="react-logo" />
-          <h1>React Essentials</h1>
-        </header>
-        
+        <Header />
         <p className="content">
           Fundamental React concepts you will need for almost any app you are going to build!
         </p>

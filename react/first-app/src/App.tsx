@@ -1,4 +1,5 @@
 import './App.css'
+import reactImg from './assets/react.svg'
 
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core']
 
@@ -9,7 +10,7 @@ function getRandomInt(max: number) {
 function Header() {
   return (
     <header>
-      <img src="/src/assets/react.svg" alt="react-logo" />
+      <img src={reactImg} alt="react-logo" />
       <h1>React Essentials</h1>
     </header>
   )

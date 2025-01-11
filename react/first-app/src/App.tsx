@@ -1,12 +1,11 @@
 import './App.css'
-import Header from './components/Header'
+import Header from './components/Header/Header'
+import TabButton from './components/TabButton';
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core']
 
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * (max + 1));
 }
-
-
 
 function App() {
   const description = reactDescriptions[getRandomInt(reactDescriptions.length - 1)]
@@ -23,6 +22,15 @@ function App() {
           Time to get started
         </p>
       </div>
+      <section id='examples'>
+        <h2>Examples</h2>
+        <menu>
+          <TabButton>Components</TabButton>
+          <TabButton>JSX</TabButton>
+          <TabButton>Props</TabButton>
+          <TabButton>State</TabButton>
+        </menu>
+      </section>
     </>
   )
 }

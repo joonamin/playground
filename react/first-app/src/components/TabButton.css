@@ -1,0 +1,18 @@
+menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 0;
+}
+.tab-btn {
+    list-style: none;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+.tab-btn:hover {
+    background-color: #475f8d;
+}
+
+.tab-btn button {
+    background-color: rgba(0, 0, 0, 0);
+}

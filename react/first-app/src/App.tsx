@@ -7,9 +7,12 @@ function getRandomInt(max: number) {
   return Math.floor(Math.random() * (max + 1));
 }
 
+function handleSelect() {
+  console.log('hello world - selected!!')
+}
+
 function App() {
   const description = reactDescriptions[getRandomInt(reactDescriptions.length - 1)]
-
   return (
     <>
       <div className="main">
@@ -25,11 +28,12 @@ function App() {
       <section id='examples'>
         <h2>Examples</h2>
         <menu>
-          <TabButton>Components</TabButton>
+          <TabButton onSelect={handleSelect}>Components</TabButton>
           <TabButton>JSX</TabButton>
           <TabButton>Props</TabButton>
           <TabButton>State</TabButton>
         </menu>
+        Dynamic Contents
       </section>
     </>
   )

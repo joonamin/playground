@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import Header from './components/Header/Header'
 import TabButton from './components/TabButton';
@@ -8,14 +9,12 @@ function getRandomInt(max: number) {
 }
 
 function App() {
-
   const description = reactDescriptions[getRandomInt(reactDescriptions.length - 1)]
-  let tabContent = 'Please Click a button'
+  const [selectedTopic, setSelectedTopic] = useState<string>('Please click a button')
   function handleSelect(selectedButton: string) {
 
     // selectedButton => 'components', 'jsx', 'props', 'state'
-    tabContent = selectedButton
-    console.log(tabContent)
+    setSelectedTopic(selectedButton)
   }
 
   return (
@@ -38,7 +37,7 @@ function App() {
           <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
           <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
         </menu>
-        {tabContent}
+        {selectedTopic}
       </section>
     </>
   )

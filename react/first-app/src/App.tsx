@@ -7,13 +7,17 @@ function getRandomInt(max: number) {
   return Math.floor(Math.random() * (max + 1));
 }
 
-function handleSelect(selectedButton: string) {
-  // selectedButton => 'components', 'jsx', 'props', 'state'
-  console.log(selectedButton)
-}
-
 function App() {
+
   const description = reactDescriptions[getRandomInt(reactDescriptions.length - 1)]
+  let tabContent = 'Please Click a button'
+  function handleSelect(selectedButton: string) {
+
+    // selectedButton => 'components', 'jsx', 'props', 'state'
+    tabContent = selectedButton
+    console.log(tabContent)
+  }
+
   return (
     <>
       <div className="main">
@@ -34,7 +38,7 @@ function App() {
           <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
           <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
         </menu>
-        Dynamic Contents
+        {tabContent}
       </section>
     </>
   )

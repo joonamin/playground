@@ -7,8 +7,9 @@ function getRandomInt(max: number) {
   return Math.floor(Math.random() * (max + 1));
 }
 
-function handleSelect() {
-  console.log('hello world - selected!!')
+function handleSelect(selectedButton: string) {
+  // selectedButton => 'components', 'jsx', 'props', 'state'
+  console.log(selectedButton)
 }
 
 function App() {
@@ -28,10 +29,10 @@ function App() {
       <section id='examples'>
         <h2>Examples</h2>
         <menu>
-          <TabButton onSelect={handleSelect}>Components</TabButton>
-          <TabButton>JSX</TabButton>
-          <TabButton>Props</TabButton>
-          <TabButton>State</TabButton>
+          <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
+          <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+          <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
+          <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
         </menu>
         Dynamic Contents
       </section>

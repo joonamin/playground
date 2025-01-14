@@ -3,6 +3,15 @@ import './App.css'
 import Header from './components/Header/Header'
 import TabButton from './components/TabButton';
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core']
+import { EXAMPLES } from './assets/data-with-examples'
+
+type IData = {
+  [key: string]: {
+    title: string,
+    description: string,
+    code: string,
+  },
+}
 
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * (max + 1));
@@ -10,7 +19,8 @@ function getRandomInt(max: number) {
 
 function App() {
   const description = reactDescriptions[getRandomInt(reactDescriptions.length - 1)]
-  const [selectedTopic, setSelectedTopic] = useState<string>('Please click a button')
+  const [selectedTopic, setSelectedTopic] = useState<string>('')
+  const data: IData = EXAMPLES
   function handleSelect(selectedButton: string) {
 
     // selectedButton => 'components', 'jsx', 'props', 'state'
@@ -37,7 +47,13 @@ function App() {
           <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
           <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
         </menu>
-        {selectedTopic}
+        <div id="tab-content">
+          <h3>{data[selectedTopic]?.title}</h3>
+          <p>{data[selectedTopic]?.description}</p>
+          <pre>
+            <code>{data[selectedTopic]?.code}</code>
+          </pre>
+        </div>
       </section>
     </>
   )

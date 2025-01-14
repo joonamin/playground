@@ -19,7 +19,7 @@ function getRandomInt(max: number) {
 
 function App() {
   const description = reactDescriptions[getRandomInt(reactDescriptions.length - 1)]
-  const [selectedTopic, setSelectedTopic] = useState<string>('')
+  const [selectedTopic, setSelectedTopic] = useState<string | null>(null)
   const data: IData = EXAMPLES
   function handleSelect(selectedButton: string) {
 
@@ -48,11 +48,15 @@ function App() {
           <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
         </menu>
         <div id="tab-content">
-          <h3>{data[selectedTopic]?.title}</h3>
-          <p>{data[selectedTopic]?.description}</p>
-          <pre>
-            <code>{data[selectedTopic]?.code}</code>
-          </pre>
+          {!selectedTopic ? <p>Please select a topic</p> : null}
+          {/* else의 경우에서 별다른 처리를 하고 싶지 않다면 아래처럼 처리하는 것도 간결하다 */}
+          {selectedTopic && (
+            <><h3>{data[selectedTopic]?.title}</h3>
+              <p>{data[selectedTopic]?.description}</p>
+              <pre>
+                <code>{data[selectedTopic]?.code}</code>
+              </pre>
+            </>)}
         </div>
       </section>
     </>

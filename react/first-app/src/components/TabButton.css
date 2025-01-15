@@ -34,3 +34,8 @@ menu {
     color: white;
     font-weight: bold;
 }
+
+menu button.active {
+    background-color: #7925d3;
+    color: #ebe7ef
+}

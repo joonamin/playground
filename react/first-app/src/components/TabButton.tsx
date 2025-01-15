@@ -1,9 +1,9 @@
 import './TabButton.css'
-export default function TabButton({ children, onSelect }: { children: string | null, onSelect?: () => void }) {
-
+export default function TabButton({ children, onSelect, isSelected = false }: { children: string | null, onSelect?: () => void, isSelected: boolean }) {
+    console.log(`isSelected: ${isSelected}`)
     return (
         <li className='tab-btn' onClick={onSelect}>
-            <button>{children}</button>
+            <button className={isSelected && 'active'}>{children}</button>
         </li>
     )
 }
